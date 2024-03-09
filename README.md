@@ -72,7 +72,7 @@ Example of using arguments and modifiers:
 To customize tooltips, you need to create a global style file using `CSS` or `Sass`. My example demonstrates this process:
 
 ```scss
-.data-tooltip {
+.vue-tooltip {
   &::after {
     /*
     * font-size, line-height, max-width, padding, border-radius, box-shadow, transition

@@ -1,29 +1,29 @@
 /* General tooltip styles */
-.data-tooltip {
+.vue-tooltip {
     position: relative;
     cursor: pointer;
 }
 
  /* Style for primary tooltip color */
-.data-tooltip__primary::after {
+.vue-tooltip__primary::after {
     background: #fff;
     color: #212121;
 }
 
  /* Style for secondary tooltip color */
-.data-tooltip__secondary::after {
+.vue-tooltip__secondary::after {
     background: #475DEB;
     color: #fff;
 }
 
  /* Style for accent tooltip color */
- .data-tooltip__accent::after {
+ .vue-tooltip__accent::after {
     background: #212121;
     color: #fff;
 }
 
 /* Styles for tooltip content */
-.data-tooltip::after {
+.vue-tooltip::after {
     content: attr(data-tooltip);
     font-size: 14px;
     position: absolute;
@@ -42,54 +42,54 @@
 }
 
 /* Tooltip appears on hover */
-.data-tooltip:hover::after {
+.vue-tooltip:hover::after {
     opacity: 1;
 }
 
 /* Setting tooltip positioning (bottom) */
-.data-tooltip__bottom::after {
+.vue-tooltip__bottom::after {
     top: 50%;
     bottom: auto;
     right: 50%; 
     left: 50%;
     transform: translate(-50%, 0);
 }
-.data-tooltip__bottom:hover::after {
+.vue-tooltip__bottom:hover::after {
     top: calc(100% + 2px);
 }
 
 /* Setting tooltip positioning (top) */
-.data-tooltip__top::after {
+.vue-tooltip__top::after {
     top: auto;
     bottom: 50%; 
     right: 50%; 
     left: 50%;
     transform: translate(-50%, 0);
 }
-.data-tooltip__top:hover::after {
+.vue-tooltip__top:hover::after {
     bottom: calc(100% + 2px);
 }
 
 /* Setting tooltip positioning (right) */
-.data-tooltip__right::after {
+.vue-tooltip__right::after {
     top: 50%;
     bottom: 50%; 
     left: 14px;
     right: auto;
     transform: translate(0, -50%);
 }
-.data-tooltip__right:hover::after {
+.vue-tooltip__right:hover::after {
     left: calc(100% + 10px);
 }
 
 /* Setting tooltip positioning (left) */
-.data-tooltip__left::after {
+.vue-tooltip__left::after {
     top: 50%;
     bottom: 50%; 
     right: 14px;
     left: auto;
     transform: translate(0, -50%);
 }
-.data-tooltip__left:hover::after {
+.vue-tooltip__left:hover::after {
     right: calc(100% + 10px);
 }
