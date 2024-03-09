@@ -12,7 +12,7 @@
 
  /* Style for secondary tooltip color */
 .data-tooltip__secondary::after {
-    background: #212121;
+    background: #475DEB;
     color: #fff;
 }
 
