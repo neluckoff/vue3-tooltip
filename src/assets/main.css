@@ -5,22 +5,19 @@
 }
 
  /* Style for primary tooltip color */
-.data-tooltip.data-tooltip__primary::after, 
-.data-tooltip::after {
+.data-tooltip__primary::after {
     background: #fff;
     color: #212121;
-    font-size: 14px;
-    line-height: 18px;
 }
 
  /* Style for secondary tooltip color */
-.data-tooltip.data-tooltip__secondary::after {
+.data-tooltip__secondary::after {
     background: #212121;
     color: #fff;
 }
 
  /* Style for accent tooltip color */
- .data-tooltip.data-tooltip__accent::after {
+ .data-tooltip__accent::after {
     background: #212121;
     color: #fff;
 }
@@ -28,6 +25,8 @@
 /* Styles for tooltip content */
 .data-tooltip::after {
     content: attr(data-tooltip);
+    font-size: 14px;
+    line-height: 18px;
     position: absolute;
     width: max-content;
     max-width: 200px;
