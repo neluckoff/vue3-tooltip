@@ -1,0 +1,97 @@
+/* General tooltip styles */
+.data-tooltip {
+    position: relative;
+    cursor: pointer;
+}
+
+ /* Style for primary tooltip color */
+.data-tooltip.data-tooltip__primary::after, 
+.data-tooltip::after {
+    background: #fff;
+    color: #212121;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+ /* Style for secondary tooltip color */
+.data-tooltip.data-tooltip__secondary::after {
+    background: #212121;
+    color: #fff;
+}
+
+ /* Style for accent tooltip color */
+ .data-tooltip.data-tooltip__accent::after {
+    background: #212121;
+    color: #fff;
+}
+
+/* Styles for tooltip content */
+.data-tooltip::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    width: max-content;
+    max-width: 200px;
+    height: max-content;
+    z-index: 10;
+    padding: 2px 4px;
+    border-radius: 4px;
+    box-shadow: 0px 3.2px 7.2px 0px rgba(0, 0, 0, 0.14),
+                0px 0.6px 1.8px 0px rgba(0, 0, 0, 0.1),
+                0px -1.5px 6px 0px rgba(0, 0, 0, 0.06);
+    pointer-events: none;
+    opacity: 0;
+    transition: 0.4s;
+}
+
+/* Tooltip appears on hover */
+.data-tooltip:hover::after {
+    opacity: 1;
+}
+
+/* Setting tooltip positioning (bottom) */
+.data-tooltip__bottom::after {
+    top: 50%;
+    bottom: auto;
+    right: 50%; 
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+.data-tooltip__bottom:hover::after {
+    top: calc(100% + 2px);
+}
+
+/* Setting tooltip positioning (top) */
+.data-tooltip__top::after {
+    top: auto;
+    bottom: 50%; 
+    right: 50%; 
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+.data-tooltip__top:hover::after {
+    bottom: calc(100% + 2px);
+}
+
+/* Setting tooltip positioning (right) */
+.data-tooltip__right::after {
+    top: 50%;
+    bottom: 50%; 
+    left: 14px;
+    right: auto;
+    transform: translate(0, -50%);
+}
+.data-tooltip__right:hover::after {
+    left: calc(100% + 10px);
+}
+
+/* Setting tooltip positioning (left) */
+.data-tooltip__left::after {
+    top: 50%;
+    bottom: 50%; 
+    right: 14px;
+    left: auto;
+    transform: translate(0, -50%);
+}
+.data-tooltip__left:hover::after {
+    right: calc(100% + 10px);
+}

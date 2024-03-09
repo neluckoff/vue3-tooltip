@@ -1,0 +1,10 @@
+{
+  "extends": "@vue/tsconfig/tsconfig.web.json",
+  "include": ["src/vue3-tooltip.d.ts", "src/**/*", "src/**/*.vue", "src/index.ts", "src/**/*.ts"],
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "vue3-tooltip": ["src/index.ts"]
+    }
+  }
+}
