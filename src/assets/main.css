@@ -26,7 +26,6 @@
 .data-tooltip::after {
     content: attr(data-tooltip);
     font-size: 14px;
-    line-height: 18px;
     position: absolute;
     width: max-content;
     max-width: 200px;

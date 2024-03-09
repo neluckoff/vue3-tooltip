@@ -1,6 +1,12 @@
 <div align="center">
     <h1>Vue3 Tooltip</h1>
-    Package for convenient work with messages in all popular instant messengers
+    <p>Module for convenient work with tooltips in Vue3 (using a directive and a component)</p>
+    <span>
+        <img alt="NPM Downloads" src="https://img.shields.io/npm/dt/vue3-tooltip">
+        <img alt="NPM Version" src="https://img.shields.io/npm/v/vue3-tooltip">
+        <img alt="GitHub forks" src="https://img.shields.io/github/forks/neluckoff/vue3-tooltip">
+        <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/neluckoff/vue3-tooltip">
+    </span>
 </div>
 &nbsp;
 
