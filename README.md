@@ -16,7 +16,7 @@ First, let's add a module to your project using **npm**:
 ```shell
 npm install vue3-tooltip
 ```
-Or you can install using yarn:
+Or you can install using **yarn**:
 
 ```shell
 yarn add vue3-tooltip
@@ -88,7 +88,7 @@ To customize tooltips, you need to create a global style file using `CSS` or `Sa
 }
 ```
 
-If you want to explore customization in more detail and change all the classes in the module, you should check them out at [this link](https://github.com/neluckoff/vue3-tooltip/blob/master/src/assets/main.css).
+If you want to explore customization in more detail and change all the classes in the module, you should check them out at [this link](https://github.com/neluckoff/vue3-tooltip/blob/master/src/assets/directive.css).
 
 ## Contributing
 I have a positive attitude towards PR and pull requests. Glad to see that people like the package.
