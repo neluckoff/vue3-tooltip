@@ -73,14 +73,14 @@ export default {
 
 /* Position: left */
 .vue-tooltip__hover-left {
-  right: var(--position-x);
+  right: var(--tooltip-position-x);
   left: auto; 
 }
 
 .left-enter-active,
 .left-leave-active {
-  transition: var(--transition-duration);
-  right: var(--position-x);
+  transition: var(--tooltip-transition-duration);
+  right: var(--tooltip-position-x);
 }
 
 .left-enter-from,
@@ -97,14 +97,14 @@ export default {
 
 /* Position: right */
 .vue-tooltip__hover-right {
-  left: var(--position-x);
+  left: var(--tooltip-position-x);
   right: auto; 
 }
 
 .right-enter-active,
 .right-leave-active {
-  transition: var(--transition-duration);
-  left: var(--position-x);
+  transition: var(--tooltip-transition-duration);
+  left: var(--tooltip-position-x);
 }
 
 .right-enter-from,
@@ -127,7 +127,7 @@ export default {
 
 .bottom-enter-active,
 .bottom-leave-active {
-  transition: var(--transition-duration);
+  transition: var(--tooltip-transition-duration);
   top: 100%;
 }
 
@@ -151,7 +151,7 @@ export default {
 
 .top-enter-active,
 .top-leave-active {
-  transition: var(--transition-duration);
+  transition: var(--tooltip-transition-duration);
   bottom: 100%;
 }
 

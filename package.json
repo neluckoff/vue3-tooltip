@@ -1,6 +1,6 @@
 {
   "name": "vue3-tooltip",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "private": false,
   "author": {
     "name": "Dmitry Luckyanenko",
@@ -20,5 +20,6 @@
     "tooltip-component",
     "v-tooltip",
     "tooltip-directive"
-  ]
+  ],
+  "license": "MIT"
 }

@@ -68,8 +68,30 @@ Example of using arguments and modifiers:
 <p v-tooltip:right.primary="secret">Secret info</p>
 ```
 
+## Using a Component
+To use a component you just need to register it in your template:
+
+```vue
+<tooltip position="bottom">
+    <template v-slot:text>
+        <p>Point at me and find out the secret</p>
+    </template>
+    <template v-slot:tip>
+        <strong>Watermelon is a berry</strong>
+    </template>
+</tooltip>
+```
+
+The component has the following props *(default values are highlighted in bold)*:
+
+`position` *(**'bottom'** | 'top' | 'left' | 'right')* - change tooltip position
+
+`disable` *(true | **false**)* - make the tooltip and the text for calling the tooltip inactive
+
+`clickable` *(true | **false**)* - do not hide the tooltip when hovering over it
+
 ## Style customization
-To customize tooltips, you need to create a global style file using `CSS` or `Sass`. My example demonstrates this process:
+To customize tooltip directive, you need to create a global style file using `CSS` or `Sass`. My example demonstrates this process:
 
 ```scss
 .vue-tooltip {
