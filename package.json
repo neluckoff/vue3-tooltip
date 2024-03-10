@@ -1,6 +1,6 @@
 {
   "name": "vue3-tooltip",
-  "version": "1.2.0",
+  "version": "1.2.4",
   "private": false,
   "author": {
     "name": "Dmitry Luckyanenko",
@@ -12,5 +12,13 @@
   "types": "src/vue3-tooltip.d.ts",
   "dependencies": {
     "vue": "^3.2.47"
-  }
+  },
+  "keywords": [
+    "vue3-tooltip",
+    "tooltip",
+    "vue3",
+    "tooltip-component",
+    "v-tooltip",
+    "tooltip-directive"
+  ]
 }

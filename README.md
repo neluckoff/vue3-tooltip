@@ -30,7 +30,7 @@ import { TooltipDirective, TooltipComponent } from 'vue3-tooltip'
 
 const app = createApp({...})
 app.directive('tooltip', TooltipDirective)
-app.component('tooltip', TooltipComponent) // in dev
+app.component('tooltip', TooltipComponent)
 app.mount('#app')
 ```
 

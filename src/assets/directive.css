@@ -1,3 +1,5 @@
+@import url("variables.css");
+
 /* General tooltip styles */
 .vue-tooltip {
     position: relative;
@@ -6,20 +8,20 @@
 
  /* Style for primary tooltip color */
 .vue-tooltip__primary::after {
-    background: #fff;
-    color: #212121;
+    background: var(--primary-background);
+    color: var(--primary-color);
 }
 
  /* Style for secondary tooltip color */
 .vue-tooltip__secondary::after {
-    background: #475DEB;
-    color: #fff;
+    background: var(--seconary-background);
+    color: var(--seconary-color);
 }
 
  /* Style for accent tooltip color */
  .vue-tooltip__accent::after {
-    background: #212121;
-    color: #fff;
+    background: var(--accent-background);
+    color: var(--accent-color);
 }
 
 /* Styles for tooltip content */
@@ -31,14 +33,12 @@
     max-width: 200px;
     height: max-content;
     z-index: 10;
-    padding: 2px 4px;
-    border-radius: 4px;
-    box-shadow: 0px 3.2px 7.2px 0px rgba(0, 0, 0, 0.14),
-                0px 0.6px 1.8px 0px rgba(0, 0, 0, 0.1),
-                0px -1.5px 6px 0px rgba(0, 0, 0, 0.06);
+    padding: var(--padding);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
     pointer-events: none;
     opacity: 0;
-    transition: 0.4s;
+    transition: var(--transition-duration);
 }
 
 /* Tooltip appears on hover */
@@ -79,7 +79,7 @@
     transform: translate(0, -50%);
 }
 .vue-tooltip__right:hover::after {
-    left: calc(100% + 10px);
+    left: var(--position-x);
 }
 
 /* Setting tooltip positioning (left) */
@@ -91,5 +91,5 @@
     transform: translate(0, -50%);
 }
 .vue-tooltip__left:hover::after {
-    right: calc(100% + 10px);
+    right: var(--position-x);
 }

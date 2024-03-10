@@ -1,5 +1,6 @@
 import TooltipComponent from './components/TooltipComponent.vue';
 import TooltipDirective from './directives/tooltip';
+import './assets/variables.css';
 import './assets/directive.css';
 import './assets/component.css';
 
