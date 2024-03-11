@@ -1,6 +1,6 @@
 import TooltipComponent from './components/TooltipComponent.vue';
 import TooltipDirective from './directives/tooltip';
-import './index.css';
+import './assets/index.css';
 
 export const install = (app: any) => {
   app.component('tooltip', TooltipComponent);

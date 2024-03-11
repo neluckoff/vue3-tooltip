@@ -26,18 +26,20 @@
 /* Styles for tooltip content */
 .vue-tooltip::after {
     content: attr(data-tooltip);
-    font-size: 14px;
+    font-size: var(--tooltip-d-font-size);
+    width: var(--tooltip-d-width);
+    max-width: var(--tooltip-d-max-width);
+    height: var(--tooltip-d-height);
+    z-index: var(--tooltip-d-z-index);
+    padding: var(--tooltip-d-padding);
+    border-radius: var(--tooltip-d-border-radius);
+    box-shadow: var(--tooltip-d-box-shadow);
+    transition: var(--tooltip-d-transition-duration);
+    border: var(--tooltip-d-border);
+    outline: var(--tooltip-d-outline);
     position: absolute;
-    width: max-content;
-    max-width: 200px;
-    height: max-content;
-    z-index: 10;
-    padding: var(--tooltip-padding);
-    border-radius: var(--tooltip-border-radius);
-    box-shadow: var(--tooltip-box-shadow);
     pointer-events: none;
     opacity: 0;
-    transition: var(--tooltip-transition-duration);
 }
 
 /* Tooltip appears on hover */
@@ -54,7 +56,7 @@
     transform: translate(-50%, 0);
 }
 .vue-tooltip__bottom:hover::after {
-    top: calc(100% + 2px);
+    top: var(--tooltip-d-position-y);
 }
 
 /* Setting tooltip positioning (top) */
@@ -66,7 +68,7 @@
     transform: translate(-50%, 0);
 }
 .vue-tooltip__top:hover::after {
-    bottom: calc(100% + 2px);
+    bottom: var(--tooltip-d-position-y);
 }
 
 /* Setting tooltip positioning (right) */
@@ -78,7 +80,7 @@
     transform: translate(0, -50%);
 }
 .vue-tooltip__right:hover::after {
-    left: var(--tooltip-position-x);
+    left: var(--tooltip-d-position-x);
 }
 
 /* Setting tooltip positioning (left) */
@@ -90,5 +92,5 @@
     transform: translate(0, -50%);
 }
 .vue-tooltip__left:hover::after {
-    right: var(--tooltip-position-x);
+    right: var(--tooltip-d-position-x);
 }

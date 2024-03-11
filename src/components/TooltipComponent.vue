@@ -53,7 +53,7 @@ export default {
     <transition :name="position" @after-enter="afterEnter">
       <div 
         v-if="!disable && isShowTooltip" 
-        class="vue-tooltip-body" 
+        class="vue-tooltip--component" 
         :class="[{ 'vue-tooltip__pointer-event': !clickable }, `vue-tooltip__${position}`]"
       >
         <slot name="tooltip"></slot>
@@ -74,14 +74,14 @@ export default {
 
 /* Position: left */
 .vue-tooltip__hover-left {
-  right: var(--tooltip-position-x);
+  right: var(--tooltip-c-position-x);
   left: auto; 
 }
 
 .left-enter-active,
 .left-leave-active {
-  transition: var(--tooltip-transition-duration);
-  right: var(--tooltip-position-x);
+  transition: var(--tooltip-c-transition-duration);
+  right: var(--tooltip-c-position-x);
 }
 
 .left-enter-from,
@@ -98,14 +98,14 @@ export default {
 
 /* Position: right */
 .vue-tooltip__hover-right {
-  left: var(--tooltip-position-x);
+  left: var(--tooltip-c-position-x);
   right: auto; 
 }
 
 .right-enter-active,
 .right-leave-active {
-  transition: var(--tooltip-transition-duration);
-  left: var(--tooltip-position-x);
+  transition: var(--tooltip-c-transition-duration);
+  left: var(--tooltip-c-position-x);
 }
 
 .right-enter-from,
@@ -122,13 +122,13 @@ export default {
 
 /* Position: bottom */
 .vue-tooltip__hover-bottom {
-  top: 100%;
+  top: var(--tooltip-c-position-y);
   bottom: auto;
 }
 
 .bottom-enter-active,
 .bottom-leave-active {
-  transition: var(--tooltip-transition-duration);
+  transition: var(--tooltip-c-transition-duration);
   top: 100%;
 }
 
@@ -146,13 +146,13 @@ export default {
 
 /* Position: top */
 .vue-tooltip__hover-top {
-  bottom: 100%;
+  bottom: var(--tooltip-c-position-y);
   top: auto; 
 }
 
 .top-enter-active,
 .top-leave-active {
-  transition: var(--tooltip-transition-duration);
+  transition: var(--tooltip-c-transition-duration);
   bottom: 100%;
 }
 

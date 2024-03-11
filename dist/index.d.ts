@@ -6,14 +6,14 @@ import { PublicProps } from 'vue';
 import { Ref } from 'vue';
 
 declare module 'vue3-tooltip' {
-    declare const _default: {
+    const _default: {
         install: (app: any) => void;
     };
     export default _default;
 
-    export declare const install: (app: any) => void;
+    export const install: (app: any) => void;
 
-    export declare const TooltipComponent: DefineComponent<{
+    export const TooltipComponent: DefineComponent<{
         disable: {
             type: BooleanConstructor;
             required: false;
@@ -55,9 +55,9 @@ declare module 'vue3-tooltip' {
         clickable: boolean;
     }, {}>;
 
-    export declare const TooltipDirective: Directive<HTMLElement, string>;
+    export const TooltipDirective: Directive<HTMLElement, string>;
 
-    declare type TooltipPosition = 'bottom' | 'top' | 'left' | 'right';
+    type TooltipPosition = 'bottom' | 'top' | 'left' | 'right';
 
     export { }
 }

@@ -1,0 +1,19 @@
+.vue-tooltip--component {
+  z-index: var(--tooltip-c-z-index);
+  background: var(--tooltip-component-background);
+  color: var(--tooltip-component-color);
+  border-radius: var(--tooltip-c-border-radius);
+  box-shadow: var(--tooltip-c-box-shadow);
+  padding: var(--tooltip-c-padding);
+  max-width: var(--tooltip-c-max-width);
+  width: var(--tooltip-c-width);
+  height: var(--tooltip-c-height);
+  border: var(--tooltip-c-border);
+  outline: var(--tooltip-c-outline);
+  position: absolute;
+}
+
+.vue-tooltip.disable {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

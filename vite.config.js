@@ -8,7 +8,7 @@ import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js';
 export default defineConfig({
   plugins: [ 
     vue(),
-    cssInjectedByJsPlugin({ useStrictCSP: true, topExecutionPriority: true }), 
+    cssInjectedByJsPlugin({ useStrictCSP: true, relativeCSSInjection: true }), 
     dts({ rollupTypes: true }),
   ],
   build: {
