@@ -2,7 +2,7 @@
   "name": "vue3-tooltip",
   "description": "Module for convenient work with tooltips in Vue3 (using a directive and a component)",
   "type": "module",
-  "version": "2.0.5",
+  "version": "2.0.9",
   "private": false,
   "author": {
     "name": "Dmitry Luckyanenko",
@@ -12,8 +12,7 @@
   },
   "main": "./dist/vue3-tooltip.umd.js",
   "module": "./dist/vue3-tooltip.es.js",
-  "types": "./dist/index.d.ts",
-  "styles": "./dist/style.css",
+  "typings": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
@@ -22,10 +21,6 @@
       "import": "./dist/vue3-tooltip.es.js",
       "require": "./dist/vue3-tooltip.umd.js",
       "types": "./dist/index.d.ts"
-    },
-    "./dist/*.css": {
-      "import": "./dist/*.css",
-      "require": "./dist/*.css"
     }
   },
   "peerDependencies": {

@@ -1,8 +1,6 @@
 import type { Directive } from "vue";
 
-export type TooltipDirectiveType = Directive<HTMLElement, string>;
-
-const TooltipDirective: TooltipDirectiveType = {
+const TooltipDirective: Directive<HTMLElement, string> = {
   mounted: (el, binding) => {
     updateTooltip(el, binding);
   },
@@ -17,7 +15,6 @@ const updateTooltip = (el: HTMLElement, binding: { value: string; modifiers: { [
   if (binding.value === null || binding.value === undefined)
     return;
   el.dataset.tooltip = binding.value;
-  el.classList.add(`${className}-data`);
   el.classList.toggle(`${className}__${getStyleClass(binding.modifiers)}`, true);
   el.classList.toggle(`${className}__${binding.arg || 'bottom'}`, true);
 };

@@ -1,0 +1,17 @@
+src/
+docs/
+npm-debug.log
+yarn-error.log
+dist/src/
+.github
+.package-lock.json
+.yarn.lock
+*.log
+.api-extractor
+.eslintrc
+.gitignore
+.eslintrc.js
+api-extractor.json
+tsconfig.json
+*.config.js
+.vscode
