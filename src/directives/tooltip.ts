@@ -1,4 +1,5 @@
 import type { Directive } from "vue";
+import '../assets/directive.css';
 
 const TooltipDirective: Directive<HTMLElement, string> = {
   mounted: (el, binding) => {

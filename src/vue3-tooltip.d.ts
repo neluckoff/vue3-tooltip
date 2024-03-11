@@ -5,6 +5,6 @@ declare module 'vue3-tooltip' {
   const TooltipComponent: ComponentOptions;
   const TooltipDirective: TooltipDirective;
   
-  export default component;
+  export default TooltipComponent;
   export { TooltipComponent, TooltipDirective };
 }

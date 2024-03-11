@@ -76,7 +76,7 @@ To use a component you just need to register it in your template:
     <template v-slot:text>
         <p>Point at me and find out the secret</p>
     </template>
-    <template v-slot:tip>
+    <template v-slot:tooltip>
         <strong>Watermelon is a berry</strong>
     </template>
 </tooltip>

@@ -1,9 +1,11 @@
 <script lang="ts">
 import { ref } from 'vue';
+import '../assets/component.css';
 
 type TooltipPosition = 'bottom' | 'top' | 'left' | 'right';
 
 export default {
+  name: 'TooltipComponent',
   props: {
     disable: {
       type: Boolean,
@@ -55,13 +57,13 @@ export default {
         class="vue-tooltip-body" 
         :class="[{ 'vue-tooltip__pointer-event': !clickable }, `vue-tooltip__${position}`]"
       >
-        <slot name="tip"></slot>
+        <slot name="tooltip"></slot>
       </div>
     </transition>
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="css">
 .vue-tooltip::after {
   content: '';
   display: none;

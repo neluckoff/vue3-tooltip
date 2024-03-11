@@ -1,6 +1,6 @@
 {
   "name": "vue3-tooltip",
-  "version": "1.2.5",
+  "version": "1.2.14",
   "private": false,
   "author": {
     "name": "Dmitry Luckyanenko",
@@ -10,6 +10,11 @@
   },
   "module": "src/index.ts",
   "types": "src/vue3-tooltip.d.ts",
+  "style": "src/assets/index.css",
+  "files": [
+    "src",
+    "src/assets/index.css"
+  ],
   "dependencies": {
     "vue": "^3.2.47"
   },
@@ -21,5 +26,12 @@
     "v-tooltip",
     "tooltip-directive"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/neluckoff/vue3-tooltip.git"
+  },
+  "bugs": {
+    "url": "https://github.com/neluckoff/vue3-tooltip/issues"
+  }
 }
