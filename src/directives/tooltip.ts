@@ -1,7 +1,8 @@
 import type { Directive } from "vue";
-import '../assets/directive.css';
 
-const TooltipDirective: Directive<HTMLElement, string> = {
+export type TooltipDirectiveType = Directive<HTMLElement, string>;
+
+const TooltipDirective: TooltipDirectiveType = {
   mounted: (el, binding) => {
     updateTooltip(el, binding);
   },

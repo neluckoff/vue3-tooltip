@@ -1,6 +1,5 @@
 <script lang="ts">
 import { ref } from 'vue';
-import '../assets/component.css';
 
 type TooltipPosition = 'bottom' | 'top' | 'left' | 'right';
 

@@ -1,7 +1,8 @@
 {
   "name": "vue3-tooltip",
   "description": "Module for convenient work with tooltips in Vue3 (using a directive and a component)",
-  "version": "1.2.19",
+  "type": "module",
+  "version": "2.0.5",
   "private": false,
   "author": {
     "name": "Dmitry Luckyanenko",
@@ -9,10 +10,35 @@
     "email": "neluckoff@gmail.com",
     "github": "https://github.com/neluckoff"
   },
-  "module": "src/index.ts",
-  "types": "src/vue3-tooltip.d.ts",
+  "main": "./dist/vue3-tooltip.umd.js",
+  "module": "./dist/vue3-tooltip.es.js",
+  "types": "./dist/index.d.ts",
+  "styles": "./dist/style.css",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/vue3-tooltip.es.js",
+      "require": "./dist/vue3-tooltip.umd.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./dist/*.css": {
+      "import": "./dist/*.css",
+      "require": "./dist/*.css"
+    }
+  },
   "peerDependencies": {
     "vue": "^3.2.47"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.4",
+    "typescript": "^5.2.2",
+    "vite": "^5.1.4",
+    "vite-plugin-css-injected-by-js": "^3.1.1",
+    "vite-plugin-dts": "^3.6.4",
+    "vue": "^3.4.21",
+    "vue-tsc": "^1.8.27"
   },
   "keywords": [
     "vue3-tooltip",
@@ -29,5 +55,8 @@
   },
   "bugs": {
     "url": "https://github.com/neluckoff/vue3-tooltip/issues"
+  },
+  "scripts": {
+    "build": "vite build"
   }
 }
