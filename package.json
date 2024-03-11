@@ -1,6 +1,7 @@
 {
   "name": "vue3-tooltip",
-  "version": "1.2.14",
+  "description": "Module for convenient work with tooltips in Vue3 (using a directive and a component)",
+  "version": "1.2.19",
   "private": false,
   "author": {
     "name": "Dmitry Luckyanenko",
@@ -10,12 +11,7 @@
   },
   "module": "src/index.ts",
   "types": "src/vue3-tooltip.d.ts",
-  "style": "src/assets/index.css",
-  "files": [
-    "src",
-    "src/assets/index.css"
-  ],
-  "dependencies": {
+  "peerDependencies": {
     "vue": "^3.2.47"
   },
   "keywords": [

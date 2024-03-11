@@ -2,6 +2,7 @@
 .vue-tooltip {
     position: relative;
     cursor: pointer;
+    z-index: 1;
 }
 
  /* Style for primary tooltip color */
