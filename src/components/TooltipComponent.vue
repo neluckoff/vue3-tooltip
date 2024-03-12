@@ -68,6 +68,10 @@ export default {
   display: none;
 }
 
+.vue-tooltip:hover {
+  z-index: calc(var(--tooltip-c-z-index) + 1);
+}
+
 .vue-tooltip__pointer-event {
   pointer-events: none;
 }

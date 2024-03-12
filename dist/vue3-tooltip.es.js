@@ -36,7 +36,7 @@ const _ = {
     o[l] = n;
   return o;
 };
-function T(t, e, o, l, n, b) {
+function T(t, e, o, l, n, h) {
   return r(), s("div", {
     onMouseenter: e[0] || (e[0] = (u) => l.isShowTooltip = !0),
     onMouseleave: e[1] || (e[1] = (u) => l.isShowTooltip = !1),
@@ -59,7 +59,7 @@ function T(t, e, o, l, n, b) {
     }, 8, ["name", "onAfterEnter"])
   ], 34);
 }
-const S = /* @__PURE__ */ y(_, [["render", T], ["__scopeId", "data-v-69eec82b"]]), k = {
+const S = /* @__PURE__ */ y(_, [["render", T], ["__scopeId", "data-v-f73c658e"]]), k = {
   mounted: (t, e) => {
     c(t, e);
   },
@@ -71,12 +71,12 @@ const S = /* @__PURE__ */ y(_, [["render", T], ["__scopeId", "data-v-69eec82b"]]
   t.classList.add(o), !(e.value === null || e.value === void 0) && (t.dataset.tooltip = e.value, t.classList.toggle(`${o}__${C(e.modifiers)}`, !0), t.classList.toggle(`${o}__${e.arg || "bottom"}`, !0));
 }, C = (t) => t.primary ? "primary" : t.secondary ? "secondary" : t.accent ? "accent" : "primary", E = (t) => {
   t.component("tooltip", S), t.directive("tooltip", k);
-}, w = {
+}, $ = {
   install: E
 };
 export {
   S as TooltipComponent,
   k as TooltipDirective,
-  w as default,
+  $ as default,
   E as install
 };

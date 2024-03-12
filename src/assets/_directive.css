@@ -44,6 +44,10 @@
     opacity: 0;
 }
 
+.vue-tooltip:hover {
+    z-index: calc(var(--tooltip-d-z-index) + 1);
+  }
+
 /* Tooltip appears on hover */
 .vue-tooltip:hover::after {
     opacity: 1;
