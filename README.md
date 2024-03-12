@@ -75,10 +75,10 @@ To use a component you just need to register it in your template:
 ```vue
 <tooltip position="bottom">
     <template v-slot:text>
-        <p>Point at me and find out the secret</p>
+      <p>Point at me and find out the secret</p>
     </template>
     <template v-slot:tooltip>
-        <strong>Watermelon is a berry</strong>
+      <img src="https://picsum.photos/200" />
     </template>
 </tooltip>
 ```

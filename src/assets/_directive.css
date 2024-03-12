@@ -3,6 +3,8 @@
     position: relative;
     cursor: pointer;
     z-index: 1;
+    height: max-content;
+    width: max-content;
 }
 
  /* Style for primary tooltip color */
