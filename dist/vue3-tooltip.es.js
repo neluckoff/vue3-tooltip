@@ -1,4 +1,4 @@
-import { ref as d, openBlock as r, createElementBlock as s, normalizeClass as a, renderSlot as i, createVNode as p, Transition as f, withCtx as v, createCommentVNode as m } from "vue";
+import { ref as d, openBlock as n, createElementBlock as r, normalizeClass as s, renderSlot as i, createVNode as p, Transition as f, withCtx as v, createCommentVNode as m } from "vue";
 const _ = {
   name: "TooltipComponent",
   props: {
@@ -22,8 +22,8 @@ const _ = {
     const e = d(!1);
     return {
       isShowTooltip: e,
-      afterEnter: (n) => {
-        n.classList.add(`vue-tooltip__hover-${t.position}`);
+      afterEnter: (a) => {
+        a.classList.add(`vue-tooltip__hover-${t.position}`);
       },
       hideTooltip: () => {
         e.value = !1;
@@ -32,15 +32,15 @@ const _ = {
   }
 }, y = (t, e) => {
   const o = t.__vccOpts || t;
-  for (const [l, n] of e)
-    o[l] = n;
+  for (const [l, a] of e)
+    o[l] = a;
   return o;
 };
-function T(t, e, o, l, n, h) {
-  return r(), s("div", {
+function T(t, e, o, l, a, h) {
+  return n(), r("div", {
     onMouseenter: e[0] || (e[0] = (u) => l.isShowTooltip = !0),
     onMouseleave: e[1] || (e[1] = (u) => l.isShowTooltip = !1),
-    class: a(["vue-tooltip", { disable: o.disable }])
+    class: s(["vue-tooltip", { disable: o.disable }])
   }, [
     i(t.$slots, "text", {}, void 0, !0),
     p(f, {
@@ -48,9 +48,9 @@ function T(t, e, o, l, n, h) {
       onAfterEnter: l.afterEnter
     }, {
       default: v(() => [
-        !o.disable && l.isShowTooltip ? (r(), s("div", {
+        !o.disable && l.isShowTooltip ? (n(), r("div", {
           key: 0,
-          class: a(["vue-tooltip--component", [{ "vue-tooltip__pointer-event": !o.clickable }, `vue-tooltip__${o.position}`]])
+          class: s(["vue-tooltip--component", [{ "vue-tooltip__pointer-event": !o.clickable }, `vue-tooltip__${o.position}`]])
         }, [
           i(t.$slots, "tooltip", {}, void 0, !0)
         ], 2)) : m("", !0)
@@ -59,7 +59,7 @@ function T(t, e, o, l, n, h) {
     }, 8, ["name", "onAfterEnter"])
   ], 34);
 }
-const S = /* @__PURE__ */ y(_, [["render", T], ["__scopeId", "data-v-f73c658e"]]), k = {
+const S = /* @__PURE__ */ y(_, [["render", T], ["__scopeId", "data-v-f8a3696a"]]), k = {
   mounted: (t, e) => {
     c(t, e);
   },

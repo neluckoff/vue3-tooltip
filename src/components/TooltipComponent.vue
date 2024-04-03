@@ -133,7 +133,7 @@ export default {
 .bottom-enter-active,
 .bottom-leave-active {
   transition: var(--tooltip-c-transition-duration);
-  top: 100%;
+  top: calc(100% + 5px);
 }
 
 .bottom-enter-from,
