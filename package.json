@@ -2,7 +2,7 @@
   "name": "vue3-tooltip",
   "description": "Module for convenient work with tooltips in Vue3 (using a directive and a component)",
   "type": "module",
-  "version": "2.2.3",
+  "version": "2.2.4",
   "private": false,
   "author": {
     "name": "Dmitry Luckyanenko",

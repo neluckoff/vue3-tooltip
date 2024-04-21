@@ -9,54 +9,73 @@ export default {
     disable: {
       type: Boolean,
       required: false,
-      default: false
+      default: false,
     },
     position: {
       type: String as () => TooltipPosition,
       required: false,
-      default: 'bottom'
+      default: 'bottom',
     },
     clickable: {
       type: Boolean,
       required: false,
-      default: false
-    }
+      default: false,
+    },
   },
   setup(props) {
     const isShowTooltip = ref(false);
+    const onTooltipHover = ref(false);
 
     const afterEnter = (el: Element) => {
       el.classList.add(`vue-tooltip__hover-${props.position}`);
     };
 
-    const hideTooltip = () => {
-      isShowTooltip.value = false;
+    const onMouseLeave = () => {
+      if (!props.clickable) {
+        isShowTooltip.value = false;
+        return;
+      }
+      setTimeout(() => {
+        if (onTooltipHover.value) {
+          isShowTooltip.value = true;
+          return;
+        }
+        isShowTooltip.value = false;
+      }, 300);
     };
 
     return {
       isShowTooltip,
+      onTooltipHover,
       afterEnter,
-      hideTooltip
+      onMouseLeave,
     };
-  }
-}
+  },
+};
 </script>
 
 <template>
   <div
     @mouseenter="isShowTooltip = true"
-    @mouseleave="isShowTooltip = false"
+    @mouseleave="onMouseLeave"
     class="vue-tooltip"
-    :class="{'disable': disable}"
+    :class="{ disable: disable, 'vue-tooltip__selected': isShowTooltip }"
   >
     <slot name="text"></slot>
     <transition :name="position" @after-enter="afterEnter">
-      <div 
-        v-if="!disable && isShowTooltip" 
-        class="vue-tooltip--component" 
-        :class="[{ 'vue-tooltip__pointer-event': !clickable }, `vue-tooltip__${position}`]"
+      <div
+        v-if="!disable && isShowTooltip"
+        class="vue-tooltip--component"
+        :class="[
+          { 'vue-tooltip__pointer-event': !clickable },
+          `vue-tooltip__${position}`,
+        ]"
+        @mouseenter="onTooltipHover = true"
+        @mouseleave="onTooltipHover = false"
       >
-        <slot name="tooltip"></slot>
+        <div class="vue-tooltip__body">
+          <slot name="tooltip"></slot>
+        </div>
       </div>
     </transition>
   </div>
@@ -68,7 +87,7 @@ export default {
   display: none;
 }
 
-.vue-tooltip:hover {
+.vue-tooltip__selected {
   z-index: calc(var(--tooltip-c-z-index) + 1);
 }
 
@@ -79,7 +98,7 @@ export default {
 /* Position: left */
 .vue-tooltip__hover-left {
   right: var(--tooltip-c-position-x);
-  left: auto; 
+  left: auto;
 }
 
 .left-enter-active,
@@ -96,14 +115,14 @@ export default {
 
 .vue-tooltip__left {
   top: 50%;
-  bottom: 50%; 
+  bottom: 50%;
   transform: translate(0, -50%);
 }
 
 /* Position: right */
 .vue-tooltip__hover-right {
   left: var(--tooltip-c-position-x);
-  right: auto; 
+  right: auto;
 }
 
 .right-enter-active,
@@ -120,9 +139,9 @@ export default {
 
 .vue-tooltip__right {
   top: 50%;
-  bottom: 50%; 
+  bottom: 50%;
   transform: translate(0, -50%);
-} 
+}
 
 /* Position: bottom */
 .vue-tooltip__hover-bottom {
@@ -143,7 +162,7 @@ export default {
 }
 
 .vue-tooltip__bottom {
-  right: 50%; 
+  right: 50%;
   left: 50%;
   transform: translate(-50%, 0);
 }
@@ -151,7 +170,7 @@ export default {
 /* Position: top */
 .vue-tooltip__hover-top {
   bottom: var(--tooltip-c-position-y);
-  top: auto; 
+  top: auto;
 }
 
 .top-enter-active,
@@ -167,7 +186,7 @@ export default {
 }
 
 .vue-tooltip__top {
-  right: 50%; 
+  right: 50%;
   left: 50%;
   transform: translate(-50%, 0);
 }

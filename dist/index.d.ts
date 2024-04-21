@@ -30,8 +30,9 @@ export declare const TooltipComponent: DefineComponent<{
     };
 }, {
     isShowTooltip: Ref<boolean>;
+    onTooltipHover: Ref<boolean>;
     afterEnter: (el: Element) => void;
-    hideTooltip: () => void;
+    onMouseLeave: () => void;
 }, unknown, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly<ExtractPropTypes<{
     disable: {
         type: BooleanConstructor;
