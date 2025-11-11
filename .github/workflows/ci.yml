@@ -23,16 +23,8 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     
-    - name: Update npm
-      run: |
-        if [[ "${{ matrix.node-version }}" == "18.x" ]]; then
-          npm install -g npm@10
-        else
-          npm install -g npm@latest
-        fi
-    
     - name: Install dependencies
-      run: npm ci --legacy-peer-deps
+      run: npm ci --legacy-peer-deps --no-optional
     
     - name: Run tests
       run: npm test
