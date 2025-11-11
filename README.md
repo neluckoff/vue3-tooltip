@@ -38,6 +38,12 @@
 npm install vue3-tooltip
 ```
 
+or
+
+```bash
+yarn add vue3-tooltip
+```
+
 </div>
 
 ---
@@ -623,54 +629,7 @@ npm link
 
 Released under the [MIT License](./LICENSE.md)
 
-Copyright © 2024-present [Dmitrii Lukianenko](https://github.com/neluckoff)
-
----
-
-## 💖 Show Your Support
-
-If this package helps you, please consider:
-
-<table>
-  <tr>
-    <td align="center" width="25%">
-      <br/>
-      <div>⭐</div>
-      <br/>
-      <strong>Star on GitHub</strong>
-      <br/><br/>
-      <sub><a href="https://github.com/neluckoff/vue3-tooltip">Give us a star</a></sub>
-      <br/><br/>
-    </td>
-    <td align="center" width="25%">
-      <br/>
-      <div>🐦</div>
-      <br/>
-      <strong>Share on Twitter</strong>
-      <br/><br/>
-      <sub>Tell others about it!</sub>
-      <br/><br/>
-    </td>
-    <td align="center" width="25%">
-      <br/>
-      <div>💰</div>
-      <br/>
-      <strong>Sponsor</strong>
-      <br/><br/>
-      <sub><a href="https://github.com/sponsors/neluckoff">Support development</a></sub>
-      <br/><br/>
-    </td>
-    <td align="center" width="25%">
-      <br/>
-      <div>🤝</div>
-      <br/>
-      <strong>Contribute</strong>
-      <br/><br/>
-      <sub><a href="#-contributing">Submit a PR</a></sub>
-      <br/><br/>
-    </td>
-  </tr>
-</table>
+Copyright © 2025 [Dmitrii Lukianenko](https://github.com/neluckoff)
 
 ---
 
@@ -682,7 +641,6 @@ If this package helps you, please consider:
 **Created by [@neluckoff](https://github.com/neluckoff)**
 
 <sub>
-  <a href="https://goo.su/YfII">Website</a> •
   <a href="https://github.com/neluckoff/vue3-tooltip">GitHub</a> •
   <a href="https://www.npmjs.com/package/vue3-tooltip">NPM</a> •
   <a href="https://twitter.com/intent/tweet?text=Check%20out%20Vue3%20Tooltip%20-%20Smart%20tooltips%20for%20Vue%203!&url=https://github.com/neluckoff/vue3-tooltip">Share on Twitter</a>
