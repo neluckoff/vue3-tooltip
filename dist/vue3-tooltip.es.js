@@ -1,4 +1,4 @@
-import { ref as d, onMounted as k, onUnmounted as O, nextTick as I, openBlock as L, createElementBlock as y, normalizeClass as P, renderSlot as E, createVNode as x, Transition as W, withCtx as $, createElementVNode as q, createCommentVNode as D } from "vue";
+import { ref as d, onMounted as k, onUnmounted as O, nextTick as I, createElementBlock as L, openBlock as y, normalizeClass as P, renderSlot as E, createVNode as x, Transition as W, withCtx as $, createCommentVNode as q, createElementVNode as D } from "vue";
 const T = (t, o, i, e = 10) => {
   const n = window.innerWidth, a = window.innerHeight;
   switch (i) {
@@ -143,7 +143,7 @@ const T = (t, o, i, e = 10) => {
   return i;
 }, A = { class: "vue-tooltip__body" };
 function U(t, o, i, e, n, a) {
-  return L(), y("div", {
+  return y(), L("div", {
     ref: "triggerRef",
     onMouseenter: o[2] || (o[2] = (...s) => e.onTriggerInteract && e.onTriggerInteract(...s)),
     onMouseleave: o[3] || (o[3] = (...s) => e.hideTooltip && e.hideTooltip(...s)),
@@ -160,7 +160,7 @@ function U(t, o, i, e, n, a) {
       onAfterEnter: e.afterEnter
     }, {
       default: $(() => [
-        !i.disable && e.isShowTooltip ? (L(), y("div", {
+        !i.disable && e.isShowTooltip ? (y(), L("div", {
           key: 0,
           ref: "tooltipRef",
           class: P(["vue-tooltip--component", [
@@ -170,10 +170,10 @@ function U(t, o, i, e, n, a) {
           onMouseenter: o[0] || (o[0] = (s) => e.onTooltipHover = !0),
           onMouseleave: o[1] || (o[1] = (s) => e.onTooltipHover = !1)
         }, [
-          q("div", A, [
+          D("div", A, [
             E(t.$slots, "tooltip", {}, void 0, !0)
           ])
-        ], 34)) : D("", !0)
+        ], 34)) : q("", !0)
       ]),
       _: 3
     }, 8, ["name", "onAfterEnter"])

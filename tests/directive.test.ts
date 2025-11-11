@@ -87,7 +87,7 @@ describe('TooltipDirective', () => {
     const element = wrapper.element as HTMLElement;
     
     expect(element.classList.contains('vue-tooltip')).toBe(true);
-    expect(element.getAttribute('data-tooltip')).toBeUndefined();
+    expect(element.getAttribute('data-tooltip')).toBeNull();
   });
 
   it('should clean up classes on update', async () => {
