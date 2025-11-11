@@ -2,9 +2,10 @@
 .vue-tooltip {
     position: relative;
     cursor: pointer;
-    z-index: 1;
+    z-index: var(--tooltip-d-z-index-base);
     height: max-content;
     width: max-content;
+    isolation: isolate;
 }
 
  /* Style for primary tooltip color */
@@ -36,20 +37,43 @@
     padding: var(--tooltip-d-padding);
     border-radius: var(--tooltip-d-border-radius);
     box-shadow: var(--tooltip-d-box-shadow);
-    transition: var(--tooltip-d-transition-duration);
+    transition: opacity var(--tooltip-d-transition-duration) ease-in-out,
+                transform var(--tooltip-d-transition-duration) ease-in-out;
     border: var(--tooltip-d-border);
     outline: var(--tooltip-d-outline);
     position: absolute;
     pointer-events: none;
     opacity: 0;
+    will-change: opacity, transform;
 }
 
 .vue-tooltip:hover {
-    z-index: calc(var(--tooltip-d-z-index) + 1);
-  }
+    z-index: var(--tooltip-d-z-index-hover);
+}
 
 /* Tooltip appears on hover */
 .vue-tooltip:hover::after {
+    opacity: 1;
+}
+
+/* Touch device specific styles */
+.vue-tooltip__touch {
+    cursor: pointer;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Show tooltip on touch devices when clicked */
+.vue-tooltip__touch.vue-tooltip__show::after {
+    opacity: 1;
+}
+
+/* Prevent hover behavior on touch devices */
+.vue-tooltip__touch:hover::after {
+    opacity: 0;
+}
+
+.vue-tooltip__touch.vue-tooltip__show:hover::after {
     opacity: 1;
 }
 
@@ -59,10 +83,11 @@
     bottom: auto;
     right: 50%; 
     left: 50%;
-    transform: translate(-50%, 0);
+    transform: translate(-50%, -8px);
 }
 .vue-tooltip__bottom:hover::after {
     top: var(--tooltip-d-position-y);
+    transform: translate(-50%, 0);
 }
 
 /* Setting tooltip positioning (top) */
@@ -71,10 +96,11 @@
     bottom: 50%; 
     right: 50%; 
     left: 50%;
-    transform: translate(-50%, 0);
+    transform: translate(-50%, 8px);
 }
 .vue-tooltip__top:hover::after {
     bottom: var(--tooltip-d-position-y);
+    transform: translate(-50%, 0);
 }
 
 /* Setting tooltip positioning (right) */
@@ -83,10 +109,11 @@
     bottom: 50%; 
     left: 14px;
     right: auto;
-    transform: translate(0, -50%);
+    transform: translate(-8px, -50%);
 }
 .vue-tooltip__right:hover::after {
     left: var(--tooltip-d-position-x);
+    transform: translate(0, -50%);
 }
 
 /* Setting tooltip positioning (left) */
@@ -95,8 +122,9 @@
     bottom: 50%; 
     right: 14px;
     left: auto;
-    transform: translate(0, -50%);
+    transform: translate(8px, -50%);
 }
 .vue-tooltip__left:hover::after {
     right: var(--tooltip-d-position-x);
+    transform: translate(0, -50%);
 }

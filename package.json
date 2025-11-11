@@ -2,10 +2,10 @@
   "name": "vue3-tooltip",
   "description": "Module for convenient work with tooltips in Vue3 (using a directive and a component)",
   "type": "module",
-  "version": "2.2.4",
+  "version": "2.3.0",
   "private": false,
   "author": {
-    "name": "Dmitry Luckyanenko",
+    "name": "Dmitrii Lukianenko",
     "nickname": "neluckoff",
     "email": "neluckoff@gmail.com",
     "github": "https://github.com/neluckoff"
@@ -46,14 +46,21 @@
   },
   "homepage": "https://goo.su/YfII",
   "scripts": {
-    "build": "vite build"
+    "build": "vite build",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest --coverage"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.4",
+    "@vue/test-utils": "^2.4.6",
+    "@vitest/ui": "^1.6.0",
+    "happy-dom": "^14.12.0",
     "typescript": "^5.2.2",
     "vite": "^5.1.4",
     "vite-plugin-css-injected-by-js": "^3.1.1",
     "vite-plugin-dts": "^3.6.4",
+    "vitest": "^1.6.0",
     "vue": "^3.4.21",
     "vue-tsc": "^1.8.27"
   }

@@ -1,17 +1,48 @@
+# Source files
 src/
-docs/
-npm-debug.log
-yarn-error.log
-dist/src/
-.github
-.package-lock.json
-.yarn.lock
-*.log
-.api-extractor
-.eslintrc
-.gitignore
-.eslintrc.js
-api-extractor.json
-tsconfig.json
+tests/
+
+# Config files
+.github/
+.vscode/
 *.config.js
-.vscode
+*.config.ts
+tsconfig.json
+vite.config.js
+vitest.config.ts
+
+# Documentation
+*.md
+!README.md
+
+# Git files
+.gitignore
+.gitkeep
+
+# Dependencies
+node_modules/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Lock files
+package-lock.json
+yarn.lock
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Build artifacts
+coverage/
+.nyc_output/

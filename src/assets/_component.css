@@ -11,6 +11,8 @@
   border: var(--tooltip-c-border);
   outline: var(--tooltip-c-outline);
   position: absolute;
+  will-change: opacity, transform;
+  backface-visibility: hidden;
 }
 
 .vue-tooltip.disable {

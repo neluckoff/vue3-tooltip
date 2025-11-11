@@ -1,5 +1,54 @@
-import { ref as a, openBlock as i, createElementBlock as u, normalizeClass as c, renderSlot as v, createVNode as f, Transition as p, withCtx as m, createElementVNode as _, createCommentVNode as T } from "vue";
-const y = {
+import { ref as d, onMounted as k, onUnmounted as O, nextTick as I, openBlock as L, createElementBlock as y, normalizeClass as P, renderSlot as E, createVNode as x, Transition as W, withCtx as $, createElementVNode as q, createCommentVNode as D } from "vue";
+const T = (t, o, i, e = 10) => {
+  const n = window.innerWidth, a = window.innerHeight;
+  switch (i) {
+    case "top":
+      return t.top - o.height - e >= 0;
+    case "bottom":
+      return t.bottom + o.height + e <= a;
+    case "left":
+      return t.left - o.width - e >= 0;
+    case "right":
+      return t.right + o.width + e <= n;
+    default:
+      return !0;
+  }
+}, b = (t, o, i, e = 10) => {
+  if (T(t, o, i, e))
+    return { position: i, shouldFlip: !1 };
+  const a = {
+    top: "bottom",
+    bottom: "top",
+    left: "right",
+    right: "left"
+  }[i];
+  if (T(t, o, a, e))
+    return { position: a, shouldFlip: !0 };
+  const s = ["top", "bottom", "left", "right"];
+  for (const c of s)
+    if (c !== i && c !== a && T(t, o, c, e))
+      return { position: c, shouldFlip: !0 };
+  return { position: i, shouldFlip: !1 };
+}, M = () => "ontouchstart" in window || navigator.maxTouchPoints > 0 || // @ts-ignore - for older browsers
+(navigator.msMaxTouchPoints || 0) > 0, g = (t) => {
+  const o = t.getBoundingClientRect();
+  return {
+    top: o.top,
+    left: o.left,
+    right: o.right,
+    bottom: o.bottom,
+    width: o.width,
+    height: o.height
+  };
+}, R = (t) => {
+  const o = window.innerWidth, i = window.innerHeight;
+  return {
+    top: t.top < 0,
+    bottom: t.bottom > i,
+    left: t.left < 0,
+    right: t.right > o
+  };
+}, N = {
   name: "TooltipComponent",
   props: {
     disable: {
@@ -16,85 +65,205 @@ const y = {
       type: Boolean,
       required: !1,
       default: !1
+    },
+    autoPosition: {
+      type: Boolean,
+      required: !1,
+      default: !1
+    },
+    adaptiveTouch: {
+      type: Boolean,
+      required: !1,
+      default: !1
     }
   },
   setup(t) {
-    const e = a(!1), o = a(!1);
-    return {
-      isShowTooltip: e,
-      onTooltipHover: o,
-      afterEnter: (s) => {
-        s.classList.add(`vue-tooltip__hover-${t.position}`);
-      },
-      onMouseLeave: () => {
+    const o = d(!1), i = d(!1), e = d(t.position), n = d(!1), a = d(null), s = d(null);
+    k(() => {
+      t.adaptiveTouch && (n.value = M());
+    });
+    const c = async () => {
+      if (!t.autoPosition || !a.value || (await I(), !s.value || !o.value))
+        return;
+      const u = g(a.value), h = g(s.value), H = b(
+        u,
+        h,
+        t.position
+      );
+      e.value = H.position;
+    }, r = async (u) => {
+      t.autoPosition && await c(), u.classList.add(`vue-tooltip__hover-${e.value}`);
+    }, v = () => {
+      t.disable || (o.value = !0);
+    }, m = () => {
+      if (!t.disable) {
         if (!t.clickable) {
-          e.value = !1;
+          o.value = !1;
           return;
         }
         setTimeout(() => {
-          if (o.value) {
-            e.value = !0;
+          if (i.value) {
+            o.value = !0;
             return;
           }
-          e.value = !1;
+          o.value = !1;
         }, 300);
       }
+    }, f = (u) => {
+      t.adaptiveTouch && n.value ? (u.preventDefault(), o.value = !o.value) : v();
+    }, F = () => {
+      t.adaptiveTouch && n.value && (o.value = !o.value);
+    }, _ = (u) => {
+      if (!n.value || !o.value)
+        return;
+      const h = u.target;
+      a.value && !a.value.contains(h) && s.value && !s.value.contains(h) && (o.value = !1);
+    };
+    return k(() => {
+      t.adaptiveTouch && document.addEventListener("click", _);
+    }), O(() => {
+      t.adaptiveTouch && document.removeEventListener("click", _);
+    }), {
+      isShowTooltip: o,
+      onTooltipHover: i,
+      actualPosition: e,
+      isTouch: n,
+      triggerRef: a,
+      tooltipRef: s,
+      afterEnter: r,
+      onTriggerInteract: f,
+      onTriggerClick: F,
+      hideTooltip: m
     };
   }
-}, L = (t, e) => {
-  const o = t.__vccOpts || t;
-  for (const [l, r] of e)
-    o[l] = r;
-  return o;
-}, M = { class: "vue-tooltip__body" };
-function k(t, e, o, l, r, s) {
-  return i(), u("div", {
-    onMouseenter: e[2] || (e[2] = (n) => l.isShowTooltip = !0),
-    onMouseleave: e[3] || (e[3] = (...n) => l.onMouseLeave && l.onMouseLeave(...n)),
-    class: c(["vue-tooltip", { disable: o.disable, "vue-tooltip__selected": l.isShowTooltip }])
+}, V = (t, o) => {
+  const i = t.__vccOpts || t;
+  for (const [e, n] of o)
+    i[e] = n;
+  return i;
+}, A = { class: "vue-tooltip__body" };
+function U(t, o, i, e, n, a) {
+  return L(), y("div", {
+    ref: "triggerRef",
+    onMouseenter: o[2] || (o[2] = (...s) => e.onTriggerInteract && e.onTriggerInteract(...s)),
+    onMouseleave: o[3] || (o[3] = (...s) => e.hideTooltip && e.hideTooltip(...s)),
+    onClick: o[4] || (o[4] = (...s) => e.onTriggerClick && e.onTriggerClick(...s)),
+    class: P(["vue-tooltip", {
+      disable: i.disable,
+      "vue-tooltip__selected": e.isShowTooltip,
+      "vue-tooltip__touch": i.adaptiveTouch && e.isTouch
+    }])
   }, [
-    v(t.$slots, "text", {}, void 0, !0),
-    f(p, {
-      name: o.position,
-      onAfterEnter: l.afterEnter
+    E(t.$slots, "text", {}, void 0, !0),
+    x(W, {
+      name: e.actualPosition,
+      onAfterEnter: e.afterEnter
     }, {
-      default: m(() => [
-        !o.disable && l.isShowTooltip ? (i(), u("div", {
+      default: $(() => [
+        !i.disable && e.isShowTooltip ? (L(), y("div", {
           key: 0,
-          class: c(["vue-tooltip--component", [
-            { "vue-tooltip__pointer-event": !o.clickable },
-            `vue-tooltip__${o.position}`
+          ref: "tooltipRef",
+          class: P(["vue-tooltip--component", [
+            { "vue-tooltip__pointer-event": !i.clickable && !(i.adaptiveTouch && e.isTouch) },
+            `vue-tooltip__${e.actualPosition}`
           ]]),
-          onMouseenter: e[0] || (e[0] = (n) => l.onTooltipHover = !0),
-          onMouseleave: e[1] || (e[1] = (n) => l.onTooltipHover = !1)
+          onMouseenter: o[0] || (o[0] = (s) => e.onTooltipHover = !0),
+          onMouseleave: o[1] || (o[1] = (s) => e.onTooltipHover = !1)
         }, [
-          _("div", M, [
-            v(t.$slots, "tooltip", {}, void 0, !0)
+          q("div", A, [
+            E(t.$slots, "tooltip", {}, void 0, !0)
           ])
-        ], 34)) : T("", !0)
+        ], 34)) : D("", !0)
       ]),
       _: 3
     }, 8, ["name", "onAfterEnter"])
   ], 34);
 }
-const E = /* @__PURE__ */ L(y, [["render", k], ["__scopeId", "data-v-7a4cc7f7"]]), S = {
-  mounted: (t, e) => {
-    d(t, e);
+const z = /* @__PURE__ */ V(N, [["render", U], ["__scopeId", "data-v-423db708"]]), l = "vue-tooltip", Y = ["top", "bottom", "left", "right"], B = ["primary", "secondary", "accent"], p = /* @__PURE__ */ new WeakMap(), j = {
+  mounted(t, o) {
+    const i = w(o), e = {
+      isTouch: i.adaptiveTouch ? M() : !1,
+      actualPosition: i.position
+    };
+    p.set(t, e), C(t, o, e), J(t, o, e);
   },
-  updated: (t, e) => {
-    d(t, e);
+  updated(t, o) {
+    const i = p.get(t);
+    i && (S(t), C(t, o, i));
+  },
+  beforeUnmount(t) {
+    const o = p.get(t);
+    o != null && o.cleanup && o.cleanup(), S(t), p.delete(t);
   }
-}, d = (t, e) => {
-  const o = "vue-tooltip";
-  t.classList.add(o), !(e.value === null || e.value === void 0) && (t.dataset.tooltip = e.value, t.classList.toggle(`${o}__${b(e.modifiers)}`, !0), t.classList.toggle(`${o}__${e.arg || "bottom"}`, !0));
-}, b = (t) => t.primary ? "primary" : t.secondary ? "secondary" : t.accent ? "accent" : "primary", C = (t) => {
-  t.component("tooltip", E), t.directive("tooltip", S);
-}, g = {
-  install: C
+}, C = (t, o, i) => {
+  if (t.classList.add(l), !o.value || o.value.trim() === "")
+    return;
+  t.dataset.tooltip = o.value;
+  const e = w(o);
+  t.classList.add(`${l}__${e.style}`), t.classList.add(`${l}__${i.actualPosition}`), e.adaptiveTouch && i.isTouch && t.classList.add(`${l}__touch`);
+}, S = (t) => {
+  Y.forEach((o) => {
+    t.classList.remove(`${l}__${o}`);
+  }), B.forEach((o) => {
+    t.classList.remove(`${l}__${o}`);
+  }), delete t.dataset.tooltip;
+}, w = (t) => {
+  const o = t.arg || "bottom", i = G(t.modifiers), e = t.modifiers.autoPosition || t.modifiers.auto || !1, n = t.modifiers.touch || t.modifiers.adaptive || !1;
+  return { position: o, style: i, autoPosition: e, adaptiveTouch: n };
+}, G = (t) => {
+  for (const o of B)
+    if (t[o])
+      return o;
+  return "primary";
+}, J = (t, o, i) => {
+  const e = w(o);
+  if (e.autoPosition) {
+    const n = () => {
+      const s = window.getComputedStyle(t, "::after"), c = parseFloat(s.width) || 200, r = parseFloat(s.height) || 40, v = g(t), m = {
+        ...v,
+        width: c,
+        height: r
+      }, f = b(
+        v,
+        m,
+        e.position
+      );
+      f.shouldFlip && (t.classList.remove(`${l}__${i.actualPosition}`), i.actualPosition = f.position, t.classList.add(`${l}__${i.actualPosition}`));
+    };
+    t.addEventListener("mouseenter", n);
+    const a = i.cleanup || (() => {
+    });
+    i.cleanup = () => {
+      t.removeEventListener("mouseenter", n), a();
+    };
+  }
+  if (e.adaptiveTouch && i.isTouch) {
+    let n = !1;
+    const a = (r) => {
+      r.preventDefault(), r.stopPropagation(), n ? (t.classList.remove(`${l}__show`), n = !1) : (t.classList.add(`${l}__show`), n = !0);
+    }, s = (r) => {
+      !t.contains(r.target) && n && (t.classList.remove(`${l}__show`), n = !1);
+    };
+    t.addEventListener("click", a), document.addEventListener("click", s);
+    const c = i.cleanup || (() => {
+    });
+    i.cleanup = () => {
+      t.removeEventListener("click", a), document.removeEventListener("click", s), c();
+    };
+  }
+}, K = (t) => {
+  t.component("tooltip", z), t.directive("tooltip", j);
+}, X = {
+  install: K
 };
 export {
-  E as TooltipComponent,
-  S as TooltipDirective,
-  g as default,
-  C as install
+  z as TooltipComponent,
+  j as TooltipDirective,
+  R as checkOverflow,
+  T as checkPosition,
+  X as default,
+  b as getBestPosition,
+  g as getRect,
+  K as install,
+  M as isTouchDevice
 };

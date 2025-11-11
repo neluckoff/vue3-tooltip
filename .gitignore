@@ -1,3 +1,19 @@
+# Dependencies
+node_modules/
+.pnp.*
+.yarn/
+.pnp.js
+.pnp.cjs
+
+# Lock files (keep only npm)
+yarn.lock
+pnpm-lock.yaml
+
+# Build output (only in git, included in npm package)
+dist/
+*.local
+*.tsbuildinfo
+
 # Logs
 logs
 *.log
@@ -7,15 +23,10 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-.DS_Store
-# dist
-dist-ssr
-coverage
-*.local
-
-/cypress/videos/
-/cypress/screenshots/
+# Testing
+coverage/
+.nyc_output/
+*.lcov
 
 # Editor directories and files
 .vscode/*
@@ -25,4 +36,24 @@ coverage
 *.ntvs*
 *.njsproj
 *.sln
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Temporary files
+*.tmp
+*.swp
 *.sw?
+*~
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
