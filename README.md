@@ -1,278 +1,695 @@
 <div align="center">
-    <h1>Vue3 Tooltip</h1>
-    <p>Module for convenient work with tooltips in Vue3 (using a directive and a component)</p>
-    <span>
-        <img alt="NPM Downloads" src="https://img.shields.io/npm/dt/vue3-tooltip">
-        <img alt="NPM Version" src="https://img.shields.io/npm/v/vue3-tooltip">
-        <img alt="CI Status" src="https://github.com/neluckoff/vue3-tooltip/workflows/CI/badge.svg">
-        <img alt="GitHub forks" src="https://img.shields.io/github/forks/neluckoff/vue3-tooltip">
-        <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/neluckoff/vue3-tooltip">
-        <img alt="License" src="https://img.shields.io/npm/l/vue3-tooltip">
-    </span>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/neluckoff/vue3-tooltip/master/.github/assets/logo-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/neluckoff/vue3-tooltip/master/.github/assets/logo-light.svg">
+  <img alt="Vue3 Tooltip" src="https://raw.githubusercontent.com/neluckoff/vue3-tooltip/master/.github/assets/logo-light.svg" width="600">
+</picture>
+
+<h3>✨ Smart, Elegant Tooltips for Vue 3 ✨</h3>
+
+<p align="center">
+  <strong>Auto-positioning</strong> • <strong>Touch Support</strong> • <strong>Lightweight</strong> • <strong>TypeScript</strong>
+</p>
+
+<p align="center">
+  <a href="https://www.npmjs.com/package/vue3-tooltip"><img src="https://img.shields.io/npm/v/vue3-tooltip?style=flat&colorA=18181B&colorB=10b981&label=version" alt="NPM Version"/></a>
+  <a href="https://www.npmjs.com/package/vue3-tooltip"><img src="https://img.shields.io/npm/dt/vue3-tooltip?style=flat&colorA=18181B&colorB=10b981" alt="Downloads"/></a>
+  <a href="https://bundlephobia.com/package/vue3-tooltip"><img src="https://img.shields.io/bundlephobia/minzip/vue3-tooltip?style=flat&colorA=18181B&colorB=10b981&label=gzip" alt="Bundle Size"/></a>
+  <a href="https://github.com/neluckoff/vue3-tooltip/actions"><img src="https://img.shields.io/github/actions/workflow/status/neluckoff/vue3-tooltip/ci.yml?style=flat&colorA=18181B&colorB=10b981&label=tests" alt="CI Status"/></a>
+  <a href="./LICENSE.md"><img src="https://img.shields.io/npm/l/vue3-tooltip?style=flat&colorA=18181B&colorB=10b981" alt="License"/></a>
+</p>
+
+<p align="center">
+  <a href="#-quick-start"><strong>Quick Start</strong></a> •
+  <a href="#-features"><strong>Features</strong></a> •
+  <a href="#-examples"><strong>Examples</strong></a> •
+  <a href="./DOCS.md"><strong>Full Docs</strong></a> •
+  <a href="https://codesandbox.io/p/sandbox/vue3-tooltip-fsv9xl"><strong>Live Demo</strong></a>
+</p>
+
 </div>
-&nbsp;
 
-You can find a **CodeSandBox** containing the module, along with a demonstration of its functionality and the option to customize its styles, [by following this link](https://codesandbox.io/p/sandbox/vue3-tooltip-fsv9xl?file=%2Fsrc%2Fcomponents%2FTestComponent.vue%3A17%2C9-17%2C48&layout=%257B%2522sidebarPanel%2522%253A%2522EXPLORER%2522%252C%2522rootPanelGroup%2522%253A%257B%2522direction%2522%253A%2522horizontal%2522%252C%2522contentType%2522%253A%2522UNKNOWN%2522%252C%2522type%2522%253A%2522PANEL_GROUP%2522%252C%2522id%2522%253A%2522ROOT_LAYOUT%2522%252C%2522panels%2522%253A%255B%257B%2522type%2522%253A%2522PANEL_GROUP%2522%252C%2522contentType%2522%253A%2522UNKNOWN%2522%252C%2522direction%2522%253A%2522vertical%2522%252C%2522id%2522%253A%2522cltklnak10006356iyt8wcwvd%2522%252C%2522sizes%2522%253A%255B70%252C30%255D%252C%2522panels%2522%253A%255B%257B%2522type%2522%253A%2522PANEL_GROUP%2522%252C%2522contentType%2522%253A%2522EDITOR%2522%252C%2522direction%2522%253A%2522horizontal%2522%252C%2522id%2522%253A%2522EDITOR%2522%252C%2522panels%2522%253A%255B%257B%2522type%2522%253A%2522PANEL%2522%252C%2522contentType%2522%253A%2522EDITOR%2522%252C%2522id%2522%253A%2522cltklnak10002356iretltoe2%2522%257D%255D%257D%252C%257B%2522type%2522%253A%2522PANEL_GROUP%2522%252C%2522contentType%2522%253A%2522SHELLS%2522%252C%2522direction%2522%253A%2522horizontal%2522%252C%2522id%2522%253A%2522SHELLS%2522%252C%2522panels%2522%253A%255B%257B%2522type%2522%253A%2522PANEL%2522%252C%2522contentType%2522%253A%2522SHELLS%2522%252C%2522id%2522%253A%2522cltklnak10003356iyowpmbra%2522%257D%255D%252C%2522sizes%2522%253A%255B100%255D%257D%255D%257D%252C%257B%2522type%2522%253A%2522PANEL_GROUP%2522%252C%2522contentType%2522%253A%2522DEVTOOLS%2522%252C%2522direction%2522%253A%2522vertical%2522%252C%2522id%2522%253A%2522DEVTOOLS%2522%252C%2522panels%2522%253A%255B%257B%2522type%2522%253A%2522PANEL%2522%252C%2522contentType%2522%253A%2522DEVTOOLS%2522%252C%2522id%2522%253A%2522cltklnak10005356irnq16azx%2522%257D%255D%252C%2522sizes%2522%253A%255B100%255D%257D%255D%252C%2522sizes%2522%253A%255B50%252C50%255D%257D%252C%2522tabbedPanels%2522%253A%257B%2522cltklnak10002356iretltoe2%2522%253A%257B%2522id%2522%253A%2522cltklnak10002356iretltoe2%2522%252C%2522tabs%2522%253A%255B%255D%257D%252C%2522cltklnak10005356irnq16azx%2522%253A%257B%2522id%2522%253A%2522cltklnak10005356irnq16azx%2522%252C%2522activeTabId%2522%253A%2522cltklqkii004h356hnc0o0m3h%2522%252C%2522tabs%2522%253A%255B%257B%2522type%2522%253A%2522UNASSIGNED_PORT%2522%252C%2522port%2522%253A0%252C%2522id%2522%253A%2522cltklqkii004h356hnc0o0m3h%2522%252C%2522mode%2522%253A%2522permanent%2522%252C%2522path%2522%253A%2522%252F%2522%257D%255D%257D%252C%2522cltklnak10003356iyowpmbra%2522%253A%257B%2522tabs%2522%253A%255B%255D%252C%2522id%2522%253A%2522cltklnak10003356iyowpmbra%2522%257D%257D%252C%2522showDevtools%2522%253Atrue%252C%2522showShells%2522%253Atrue%252C%2522showSidebar%2522%253Atrue%252C%2522sidebarPanelSize%2522%253A15%257D).
+<br/>
 
-## 📚 Documentation
+<div align="center">
 
-- 📖 [Documentation](./DOCS.md) - Full documentation with examples
-- 📋 [Changelog](./CHANGELOG.md) - Version history
-- 🤝 [Contributing](./.github/CONTRIBUTING.md) - How to contribute
-- 📦 [NPM Publishing Setup](./.github/NPM_SETUP.md) - Auto-publish configuration
-
-## Installation
-First, let's add a module to your project using **npm**:
-
-```shell
+```bash
 npm install vue3-tooltip
 ```
-Or you can install using **yarn**:
 
-```shell
+</div>
+
+---
+
+## ⚡ Highlights
+
+<div align="center">
+
+```vue
+<!-- Simple as this 👇 -->
+<button v-tooltip.auto.touch.primary:top="'Hello World! 👋'">
+  Hover or tap me
+</button>
+```
+
+**3 seconds to install** • **Auto-positioning** • **Touch support** • **Full TypeScript** • **3.9 KB only**
+
+</div>
+
+---
+
+## ✨ Features
+
+> **Why developers love Vue3 Tooltip**
+
+<table>
+  <tbody>
+    <tr>
+      <td align="center" width="33%">
+        <br/>
+        <div>🎯</div>
+        <br/>
+        <strong>Smart Auto-Positioning</strong>
+        <br/><br/>
+        <sub>Automatically adjusts position to stay within viewport.<br/>Never goes off-screen!</sub>
+        <br/><br/>
+      </td>
+      <td align="center" width="33%">
+        <br/>
+        <div>📱</div>
+        <br/>
+        <strong>Touch Device Support</strong>
+        <br/><br/>
+        <sub>Perfect on mobile & tablets.<br/>Tap to show, tap outside to hide.</sub>
+        <br/><br/>
+      </td>
+      <td align="center" width="33%">
+        <br/>
+        <div>⚡</div>
+        <br/>
+        <strong>Lightweight</strong>
+        <br/><br/>
+        <sub>Only <strong>~3.9 KB gzipped</strong>.<br/>Zero dependencies!</sub>
+        <br/><br/>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" width="33%">
+        <br/>
+        <div>🎨</div>
+        <br/>
+        <strong>Fully Customizable</strong>
+        <br/><br/>
+        <sub>All styles via CSS variables.<br/>Match any design system easily.</sub>
+        <br/><br/>
+      </td>
+      <td align="center" width="33%">
+        <br/>
+        <div>🔧</div>
+        <br/>
+        <strong>TypeScript First</strong>
+        <br/><br/>
+        <sub>Full TypeScript support.<br/>Exported types & utilities.</sub>
+        <br/><br/>
+      </td>
+      <td align="center" width="33%">
+        <br/>
+        <div>🚀</div>
+        <br/>
+        <strong>Easy to Use</strong>
+        <br/><br/>
+        <sub>Simple directive or component.<br/>Works out of the box!</sub>
+        <br/><br/>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+---
+
+## 🚀 Quick Start
+
+Get up and running in 60 seconds! 
+
+### 📦 Step 1: Install
+
+Choose your favorite package manager:
+
+```bash
+npm install vue3-tooltip
+# or
 yarn add vue3-tooltip
+# or
+pnpm add vue3-tooltip
 ```
 
-Add dependencies to your `main.ts`:
+### ⚙️ Step 2: Register Plugin
 
-```js
-import { createApp } from 'vue'
-import { TooltipDirective, TooltipComponent } from 'vue3-tooltip';
-import 'vue3-tooltip/tooltip.css';
+Add to your Vue app (usually `main.ts` or `main.js`):
 
-const app = createApp({...})
-app.directive('tooltip', TooltipDirective)
-app.component('tooltip', TooltipComponent)
-app.mount('#app')
+```typescript
+import { createApp } from 'vue';
+import VueTooltip from 'vue3-tooltip';
+import 'vue3-tooltip/tooltip.css';  // 👈 Don't forget styles!
+
+const app = createApp(App);
+app.use(VueTooltip);  // 👈 Registers directive & component
+app.mount('#app');
 ```
 
-## Using a Directive
-To use tooltip as a directive, simply write `v-tooltip="..."` on any block in HTML:
+### 🎯 Step 3: Use It!
+
+**Option A:** As a directive (simplest way)
 
 ```vue
-<p v-tooltip="`Tooltip text`">Some text</p>
+<button v-tooltip="'Hello World!'">
+  Hover me 👋
+</button>
 ```
 
-You can also customize a directive using arguments and change its position using modifiers:
-
-`v-tooltip:bottom` *(default)* - Change tooltip position to bottom
-
-`v-tooltip:top` - Change tooltip position to top
-
-`v-tooltip:right` - Change tooltip position to right
-
-`v-tooltip:left` - Change tooltip position to left
-
-Arguments for changing color (can be customized):
-
-`v-tooltip.primary` *(default)*
-
-`v-tooltip.secondary` 
-
-`v-tooltip.accent`
-
-Example of using arguments and modifiers:
+**Option B:** As a component (more control)
 
 ```vue
-<p v-tooltip:top="My name is ${name}">My name</p>
-<p v-tooltip:bottom.secondary="'I am' + years + 'years old'">My age</p>
-<p v-tooltip.accent="`I love writing code`">More info</p>
-<p v-tooltip:right.primary="secret">Secret info</p>
+<Tooltip>
+  <template #text>Hover me 👋</template>
+  <template #tooltip>Hello World!</template>
+</Tooltip>
 ```
 
-## Using a Component
-To use a component you just need to register it in your template:
+**That's it!** 🎉 You're ready to go!
+
+---
+
+## 💡 Examples
+
+### 🎯 Smart Auto-Positioning
+
+The tooltip automatically flips to stay visible in viewport:
 
 ```vue
-<tooltip position="bottom">
-    <template v-slot:text>
-        <p>Point at me and find out the secret</p>
+<button v-tooltip.auto:bottom="'I adjust my position smartly!'">
+  Near screen edge 🎯
+</button>
+```
+
+> 💡 Perfect for dropdowns near screen edges - no more cut-off tooltips!
+
+### 📱 Touch Device Support
+
+Works seamlessly on mobile and tablets:
+
+```vue
+<button v-tooltip.touch="'Tap me on mobile! 📱'">
+  Mobile & Desktop Ready
+</button>
+```
+
+> 💡 Automatically detects touch devices and adapts behavior
+
+### 🎨 Color Variants
+
+Choose from three beautiful built-in themes:
+
+```vue
+<button v-tooltip.primary="'Clean & modern'">Primary</button>
+<button v-tooltip.secondary="'Subtle & elegant'">Secondary</button>
+<button v-tooltip.accent="'Bold & bright'">Accent</button>
+```
+
+### 🧭 Position Control
+
+Place tooltips exactly where you want them:
+
+```vue
+<button v-tooltip:top="'↑ Top'">Top</button>
+<button v-tooltip:bottom="'↓ Bottom'">Bottom</button>
+<button v-tooltip:left="'← Left'">Left</button>
+<button v-tooltip:right="'→ Right'">Right</button>
+```
+
+### 🎭 Combine Modifiers
+
+Mix and match modifiers for powerful tooltips:
+
+```vue
+<!-- Auto-positioning + Touch + Custom color -->
+<button v-tooltip.auto.touch.secondary:top="'The ultimate tooltip! 🚀'">
+  All Features Combined
+</button>
+```
+
+> 💡 **Pro tip:** Chain modifiers like `.auto.touch.primary` for maximum functionality!
+
+---
+
+## 🧩 Component API
+
+For more complex scenarios, use the `<Tooltip>` component:
+
+### Props Reference
+
+| Prop | Type | Default | Description |
+|:-----|:-----|:--------|:------------|
+| `position` | `'top' \| 'bottom' \| 'left' \| 'right'` | `'bottom'` | Tooltip placement |
+| `autoPosition` | `boolean` | `false` | 🆕 Auto-adjust to viewport |
+| `adaptiveTouch` | `boolean` | `false` | 🆕 Enable touch support |
+| `clickable` | `boolean` | `false` | Keep open on hover |
+| `disable` | `boolean` | `false` | Disable tooltip |
+
+### Rich Content Example
+
+Perfect for complex HTML content:
+
+```vue
+<template>
+  <Tooltip 
+    position="top"
+    :auto-position="true"
+    :adaptive-touch="true"
+  >
+    <template #text>
+      <button class="my-button">
+        📊 View Stats
+      </button>
     </template>
-    <template v-slot:tooltip>
-        <strong>Watermelon is a berry</strong>
+    
+    <template #tooltip>
+      <div class="rich-tooltip">
+        <h4>📈 User Statistics</h4>
+        <p>Active users: <strong>1,234</strong></p>
+        <p>Growth: <strong style="color: #10b981">+15%</strong></p>
+      </div>
     </template>
-</tooltip>
+  </Tooltip>
+</template>
+
+<style scoped>
+.rich-tooltip {
+  min-width: 200px;
+  text-align: left;
+}
+.rich-tooltip h4 {
+  margin: 0 0 8px;
+  font-size: 14px;
+}
+.rich-tooltip p {
+  margin: 4px 0;
+  font-size: 12px;
+}
+</style>
 ```
 
-The component has the following props *(default values are highlighted in bold)*:
+---
 
-`position` *(**'bottom'** | 'top' | 'left' | 'right')* - change tooltip position
+## 🎨 Customization
 
-`disable` *(true | **false**)* - make the tooltip and the text for calling the tooltip inactive
+Match your design system effortlessly with CSS variables!
 
-`clickable` *(true | **false**)* - do not hide the tooltip when hovering over it
+### 🎨 Quick Theme Override
 
-`autoPosition` *(true | **false**)* - 🆕 automatically adjust position to fit viewport
-
-`adaptiveTouch` *(true | **false**)* - 🆕 enable touch support (click on mobile, hover on desktop)
-
-## 🆕 New Features
-
-### Auto-Positioning
-Tooltips automatically adjust their position to stay within the viewport!
-
-```vue
-<!-- Component with auto-positioning -->
-<tooltip position="bottom" :auto-position="true">
-    <template #text>Near screen edge</template>
-    <template #tooltip>I'll flip if needed!</template>
-</tooltip>
-
-<!-- Directive with auto-positioning -->
-<button v-tooltip.auto:bottom="'Smart positioning'">
-    Hover me near edge
-</button>
-```
-
-### Touch Support
-Works perfectly on mobile devices - tap to show, tap outside to hide!
-
-```vue
-<!-- Component with touch support -->
-<tooltip :adaptive-touch="true">
-    <template #text>Tap me on mobile</template>
-    <template #tooltip>Touch-friendly!</template>
-</tooltip>
-
-<!-- Directive with touch support -->
-<button v-tooltip.touch="'Tap to see'">
-    Tap me!
-</button>
-```
-
-### Combine Both
-```vue
-<tooltip :auto-position="true" :adaptive-touch="true">
-    <template #text>Works everywhere!</template>
-    <template #tooltip>Perfect on any device</template>
-</tooltip>
-
-<button v-tooltip.auto.touch="'Ultimate tooltip'">
-    Smart & Touch-friendly
-</button>
-```
-
-📚 See [DOCS.md](./DOCS.md) for complete documentation
-
-## Style customization
-To customize styles, you need to paste your CSS file into `main.ts` after importing the basic tooltip styles `(vue3-tooltip/tooltip.css)`:
-
-```js
-import { TooltipDirective, TooltipComponent } from 'vue3-tooltip';
-import 'vue3-tooltip/tooltip.css';
-// After this line you need to do your import
-import './assets/my-tooltip.scss';
-```
-
-To customize tooltip **directive**, you need to create a global style file using `CSS` or `Sass`. My example demonstrates this process:
-
-```scss
-.vue-tooltip {
-  &::after {
-    /*
-    * font-size, line-height, max-width, padding, border-radius, box-shadow, transition
-    */
-  }
-  &__primary::after {
-    /*
-    * background, color
-    */
-  }
-  &__secondary::after {// ... //}
-  &__accent::after {// ... //}
+```css
+/* In your global CSS */
+:root {
+  /* Make tooltips match your brand */
+  --tooltip-primary-background: #2563eb;
+  --tooltip-primary-color: white;
+  --tooltip-d-border-radius: 12px;
+  --tooltip-d-padding: 8px 16px;
 }
 ```
 
-*If you want to explore customization in more detail and change all the classes in the module, you should check them out at [this link](https://github.com/neluckoff/vue3-tooltip/blob/master/src/assets/_directive.css).*
+### 📋 All Available Variables
 
-To customize the **component**, you can also override the standard styles:
-
-```scss
-.vue-tooltip {
-  &.disable {
-    // ... //
-  }
-  &--component {
-    /*
-    * font-size, line-height, max-width, padding, border-radius, box-shadow, transition
-    */
-  }
-}
-```
-
-*You can go deeper into component styles at [this link](https://github.com/neluckoff/vue3-tooltip/blob/master/src/assets/_component.css).*
-
-Or, instead of redefining classes, you can use variables, on which the entire tooltip design is based. If you want to add new variables, you can write to [Issues on GitHub](https://github.com/neluckoff/vue3-tooltip/issues).
+<details>
+<summary><strong>👉 Click to see all CSS variables</strong></summary>
 
 ```css
 :root {
-  /* Directive Variables */
-  --tooltip-d-transition-duration: 0.3s;
-  --tooltip-d-border-radius: 6px;
-  --tooltip-d-padding: 6px 12px;
-  --tooltip-d-position-x: calc(100% + 10px);
-  --tooltip-d-position-y: calc(100% + 10px);
-  --tooltip-d-box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2),
-      0px 2px 4px 0px rgba(0, 0, 0, 0.12),
-      0px 0px 2px 0px rgba(0, 0, 0, 0.08);
-  --tooltip-d-z-index: 9999;           /* z-index for tooltip popup */
-  --tooltip-d-z-index-base: 1;         /* z-index for tooltip trigger element */
-  --tooltip-d-z-index-hover: 9998;     /* z-index for trigger element on hover */
-  --tooltip-d-max-width: 300px;
-  --tooltip-d-font-size: 14px;
-  --tooltip-d-width: max-content;
-  --tooltip-d-height: max-content;
-  --tooltip-d-outline: none;
-  --tooltip-d-border: none;
-
-  /* Component Variables */
-  --tooltip-c-transition-duration: 0.3s;
-  --tooltip-c-border-radius: 6px;
-  --tooltip-c-padding: 6px 12px;
-  --tooltip-c-position-x: calc(100% + 10px);
-  --tooltip-c-position-y: calc(100% + 5px);
-  --tooltip-c-box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2),
-      0px 2px 4px 0px rgba(0, 0, 0, 0.12),
-      0px 0px 2px 0px rgba(0, 0, 0, 0.08);
-  --tooltip-c-z-index: 9999;           /* z-index for tooltip popup */
-  --tooltip-c-z-index-hover: 9998;     /* z-index for trigger element on hover */
-  --tooltip-c-max-width: max-content;
-  --tooltip-c-width: max-content;
-  --tooltip-c-height: max-content;
-  --tooltip-c-outline: none;
-  --tooltip-c-border: none;
-
-  /* Colors */
-  --tooltip-primary-color: #1a1a1a;
-  --tooltip-primary-background: #ffffff;
-  --tooltip-seconary-color: #ffffff;
-  --tooltip-seconary-background: #475DEB;
-  --tooltip-accent-color: #ffffff;
-  --tooltip-accent-background: #1a1a1a;
+  /* 📐 Layout & Positioning */
+  --tooltip-d-z-index: 9999;
+  --tooltip-d-z-index-hover: 9998;
+  --tooltip-d-offset: 10px;
   
-  --tooltip-component-color: #1a1a1a;
-  --tooltip-component-background: #ffffff;
+  /* 🎨 Appearance */
+  --tooltip-d-padding: 6px 12px;
+  --tooltip-d-border-radius: 6px;
+  --tooltip-d-font-size: 14px;
+  --tooltip-d-font-weight: 500;
+  --tooltip-d-line-height: 1.4;
+  
+  /* 🎯 Primary Theme */
+  --tooltip-primary-background: #ffffff;
+  --tooltip-primary-color: #1a1a1a;
+  --tooltip-primary-border: 1px solid #e5e5e5;
+  --tooltip-primary-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  
+  /* 🎨 Secondary Theme */
+  --tooltip-secondary-background: #f3f4f6;
+  --tooltip-secondary-color: #374151;
+  
+  /* ✨ Accent Theme */
+  --tooltip-accent-background: #10b981;
+  --tooltip-accent-color: #ffffff;
+  
+  /* ⏱️ Animations */
+  --tooltip-d-transition-duration: 0.3s;
+  --tooltip-d-transition-timing: cubic-bezier(0.4, 0, 0.2, 1);
 }
 ```
 
-### Example: Custom z-index
+</details>
 
-If you need tooltips to appear above modals or other high z-index elements:
+### 💡 Examples
+
+**Dark theme:**
 
 ```css
 :root {
-  --tooltip-d-z-index: 99999;        /* Popup above everything */
-  --tooltip-d-z-index-hover: 99998;  /* Trigger on hover */
-  --tooltip-d-z-index-base: 1;       /* Default trigger */
+  --tooltip-primary-background: #1f2937;
+  --tooltip-primary-color: #f9fafb;
+  --tooltip-primary-border: 1px solid #374151;
 }
 ```
 
-## Contributing
-I have a positive attitude towards PR and pull requests. Glad to see that people like the package.
+**Glassmorphism:**
 
-- Creator: [@neluckoff](https://github.com/neluckoff)
+```css
+:root {
+  --tooltip-primary-background: rgba(255, 255, 255, 0.8);
+  --tooltip-primary-backdrop-filter: blur(10px);
+  --tooltip-primary-border: 1px solid rgba(255, 255, 255, 0.3);
+}
+```
 
-## License
+> 📖 **Full documentation:** See [DOCS.md](./DOCS.md) for complete customization guide
 
-- Copyright © 2024 [neluckoff](https://github.com/neluckoff).
-- This project is [MIT](https://github.com/neluckoff/vue3-tooltip/blob/master/LICENSE.md) licensed.
+---
+
+## 📚 Advanced Usage
+
+### 🔧 TypeScript Support
+
+Full type safety with exported types and utilities:
+
+```typescript
+import type { Position, Rect, TooltipOptions } from 'vue3-tooltip';
+import { getBestPosition, isTouchDevice } from 'vue3-tooltip';
+
+// ✅ Type-safe position
+const position: Position = 'bottom';
+
+// ✅ Detect touch devices
+const isTouch = isTouchDevice();
+
+// ✅ Smart positioning for custom tooltips
+const bestPos = getBestPosition(
+  triggerRect,
+  tooltipRect,
+  'bottom'
+);
+```
+
+### 🛠️ Utility Functions
+
+Build custom tooltip solutions with our utilities:
+
+```typescript
+import {
+  getBestPosition,    // 🎯 Find optimal position
+  checkPosition,      // ✅ Validate position fits
+  isTouchDevice,      // 📱 Detect touch support
+  getRect,           // 📐 Get element bounds
+  checkOverflow      // 🔍 Check viewport overflow
+} from 'vue3-tooltip';
+```
+
+**Example - Custom tooltip positioning:**
+
+```typescript
+import { getBestPosition, getRect } from 'vue3-tooltip';
+
+// Get element rectangles
+const triggerRect = getRect(buttonElement);
+const tooltipRect = getRect(tooltipElement);
+
+// Find best position automatically
+const bestPosition = getBestPosition(
+  triggerRect, 
+  tooltipRect, 
+  'top'  // preferred position
+);
+
+console.log(bestPosition); // 'top' or alternative if top doesn't fit
+```
+
+---
+
+## 🎯 Why Vue3 Tooltip?
+
+Comparison with other popular tooltip libraries:
+
+<table>
+  <thead>
+    <tr>
+      <th width="200">Feature</th>
+      <th align="center" width="150">Vue3 Tooltip</th>
+      <th align="center" width="150">Others</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>🎯 <strong>Auto-positioning</strong></td>
+      <td align="center">✅ Built-in</td>
+      <td align="center">❌ Manual</td>
+    </tr>
+    <tr>
+      <td>📱 <strong>Touch support</strong></td>
+      <td align="center">✅ Adaptive</td>
+      <td align="center">❌ Desktop only</td>
+    </tr>
+    <tr>
+      <td>🔧 <strong>TypeScript</strong></td>
+      <td align="center">✅ Full support</td>
+      <td align="center">⚠️ Partial</td>
+    </tr>
+    <tr>
+      <td>📦 <strong>Bundle size</strong></td>
+      <td align="center">✅ <strong>3.9 KB</strong></td>
+      <td align="center">❌ 10-20 KB</td>
+    </tr>
+    <tr>
+      <td>🎨 <strong>CSS Variables</strong></td>
+      <td align="center">✅ Fully customizable</td>
+      <td align="center">⚠️ Limited</td>
+    </tr>
+    <tr>
+      <td>📦 <strong>Dependencies</strong></td>
+      <td align="center">✅ Zero</td>
+      <td align="center">❌ Multiple</td>
+    </tr>
+    <tr>
+      <td>🌳 <strong>Tree-shakeable</strong></td>
+      <td align="center">✅ Yes</td>
+      <td align="center">⚠️ Partial</td>
+    </tr>
+    <tr>
+      <td>⚡ <strong>Vue 3 native</strong></td>
+      <td align="center">✅ Built for Vue 3</td>
+      <td align="center">⚠️ Vue 2 ports</td>
+    </tr>
+  </tbody>
+</table>
+
+---
+
+## 🌐 Browser Support
+
+Works everywhere modern Vue 3 works:
+
+<table>
+  <tr>
+    <td align="center" width="96">
+      <img src="https://raw.githubusercontent.com/alrra/browser-logos/main/src/chrome/chrome_48x48.png" width="48" height="48" alt="Chrome">
+      <br/>Chrome
+    </td>
+    <td align="center" width="96">
+      <img src="https://raw.githubusercontent.com/alrra/browser-logos/main/src/firefox/firefox_48x48.png" width="48" height="48" alt="Firefox">
+      <br/>Firefox
+    </td>
+    <td align="center" width="96">
+      <img src="https://raw.githubusercontent.com/alrra/browser-logos/main/src/safari/safari_48x48.png" width="48" height="48" alt="Safari">
+      <br/>Safari
+    </td>
+    <td align="center" width="96">
+      <img src="https://raw.githubusercontent.com/alrra/browser-logos/main/src/edge/edge_48x48.png" width="48" height="48" alt="Edge">
+      <br/>Edge
+    </td>
+    <td align="center" width="96">
+      <img src="https://raw.githubusercontent.com/alrra/browser-logos/main/src/safari-ios/safari-ios_48x48.png" width="48" height="48" alt="iOS Safari">
+      <br/>iOS Safari
+    </td>
+    <td align="center" width="96">
+      <img src="https://raw.githubusercontent.com/alrra/browser-logos/main/src/samsung-internet/samsung-internet_48x48.png" width="48" height="48" alt="Samsung">
+      <br/>Samsung
+    </td>
+  </tr>
+  <tr>
+    <td align="center">90+</td>
+    <td align="center">88+</td>
+    <td align="center">14+</td>
+    <td align="center">90+</td>
+    <td align="center">14+</td>
+    <td align="center">✅</td>
+  </tr>
+</table>
+
+---
+
+## 📖 Documentation
+
+<table>
+  <tr>
+    <td align="center" width="33%">
+      <br/>
+      <a href="./DOCS.md">
+        <strong>📚 Complete Documentation</strong>
+      </a>
+      <br/><br/>
+      <sub>Full API reference, examples, and guides</sub>
+      <br/><br/>
+    </td>
+    <td align="center" width="33%">
+      <br/>
+      <a href="./CHANGELOG.md">
+        <strong>📝 Changelog</strong>
+      </a>
+      <br/><br/>
+      <sub>Version history and migration guides</sub>
+      <br/><br/>
+    </td>
+    <td align="center" width="33%">
+      <br/>
+      <a href="https://codesandbox.io/p/sandbox/vue3-tooltip-fsv9xl">
+        <strong>🎮 Live Demo</strong>
+      </a>
+      <br/><br/>
+      <sub>Try it in an interactive playground</sub>
+      <br/><br/>
+    </td>
+  </tr>
+</table>
+
+---
+
+## 🤝 Contributing
+
+We welcome contributions! Help us make tooltips better for everyone.
+
+### 🚀 Quick Start for Contributors
+
+```bash
+# 1️⃣ Clone the repository
+git clone https://github.com/neluckoff/vue3-tooltip.git
+cd vue3-tooltip
+
+# 2️⃣ Install dependencies
+npm install
+
+# 3️⃣ Run tests (watch mode)
+npm test
+
+# 4️⃣ Build the library
+npm run build
+
+# 5️⃣ Test locally in your project
+npm link
+```
+
+### 💡 Ways to Contribute
+
+- 🐛 **Report bugs** - [Open an issue](https://github.com/neluckoff/vue3-tooltip/issues/new?template=bug_report.md)
+- ✨ **Suggest features** - [Request a feature](https://github.com/neluckoff/vue3-tooltip/issues/new?template=feature_request.md)
+- 📖 **Improve docs** - Fix typos, add examples
+- 🧪 **Add tests** - Increase coverage
+- 🎨 **Design** - Suggest UX improvements
+- 💻 **Code** - Submit pull requests
+
+> 📋 Please read our [Contributing Guide](./.github/CONTRIBUTING.md) before submitting PRs
+
+---
+
+## 📝 License
+
+Released under the [MIT License](./LICENSE.md)
+
+Copyright © 2024-present [Dmitrii Lukianenko](https://github.com/neluckoff)
+
+---
+
+## 💖 Show Your Support
+
+If this package helps you, please consider:
+
+<table>
+  <tr>
+    <td align="center" width="25%">
+      <br/>
+      <div>⭐</div>
+      <br/>
+      <strong>Star on GitHub</strong>
+      <br/><br/>
+      <sub><a href="https://github.com/neluckoff/vue3-tooltip">Give us a star</a></sub>
+      <br/><br/>
+    </td>
+    <td align="center" width="25%">
+      <br/>
+      <div>🐦</div>
+      <br/>
+      <strong>Share on Twitter</strong>
+      <br/><br/>
+      <sub>Tell others about it!</sub>
+      <br/><br/>
+    </td>
+    <td align="center" width="25%">
+      <br/>
+      <div>💰</div>
+      <br/>
+      <strong>Sponsor</strong>
+      <br/><br/>
+      <sub><a href="https://github.com/sponsors/neluckoff">Support development</a></sub>
+      <br/><br/>
+    </td>
+    <td align="center" width="25%">
+      <br/>
+      <div>🤝</div>
+      <br/>
+      <strong>Contribute</strong>
+      <br/><br/>
+      <sub><a href="#-contributing">Submit a PR</a></sub>
+      <br/><br/>
+    </td>
+  </tr>
+</table>
+
+---
+
+<div align="center">
+<br/>
+
+### Made with ❤️ for the Vue community
+
+**Created by [@neluckoff](https://github.com/neluckoff)**
+
+<sub>
+  <a href="https://goo.su/YfII">Website</a> •
+  <a href="https://github.com/neluckoff/vue3-tooltip">GitHub</a> •
+  <a href="https://www.npmjs.com/package/vue3-tooltip">NPM</a> •
+  <a href="https://twitter.com/intent/tweet?text=Check%20out%20Vue3%20Tooltip%20-%20Smart%20tooltips%20for%20Vue%203!&url=https://github.com/neluckoff/vue3-tooltip">Share on Twitter</a>
+</sub>
+
+<br/><br/>
+
+<sub>If you find a bug or have a feature request, please <a href="https://github.com/neluckoff/vue3-tooltip/issues/new">open an issue</a> 🙏</sub>
+
+</div>
