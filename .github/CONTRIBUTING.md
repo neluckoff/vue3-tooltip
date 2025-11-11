@@ -45,6 +45,8 @@ Use the bug report template when creating an issue. Include:
 - Expected vs actual behavior
 - Environment details
 
+**Security vulnerabilities?** Please see our [Security Policy](./SECURITY.md) for responsible disclosure.
+
 ## 💡 Feature Requests
 
 We welcome new ideas! Use the feature request template and describe:
@@ -54,6 +56,10 @@ We welcome new ideas! Use the feature request template and describe:
 
 ## 🤝 Code of Conduct
 
+This project adheres to the [Contributor Covenant Code of Conduct](./CODE_OF_CONDUCT.md).
+By participating, you are expected to uphold this code. Please report unacceptable behavior to [neluckoff@gmail.com](mailto:neluckoff@gmail.com).
+
+**Quick summary:**
 - Be respectful and inclusive
 - Help others learn and grow
 - Keep discussions constructive

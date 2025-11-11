@@ -620,8 +620,13 @@ npm link
 - 🧪 **Add tests** - Increase coverage
 - 🎨 **Design** - Suggest UX improvements
 - 💻 **Code** - Submit pull requests
+- 🛡️ **Security** - Report vulnerabilities privately
 
 > 📋 Please read our [Contributing Guide](./.github/CONTRIBUTING.md) before submitting PRs
+> 
+> 🤝 By participating, you agree to our [Code of Conduct](./.github/CODE_OF_CONDUCT.md)
+> 
+> 🔒 Found a security issue? See our [Security Policy](./.github/SECURITY.md)
 
 ---
 
